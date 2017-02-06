@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace KImpersonate
+namespace Kr4ken.Impersonate
 {
     public class CImpersonate : IRocketCommand
     {
@@ -49,9 +49,9 @@ namespace KImpersonate
             }
 
             UnturnedPlayer target = UnturnedPlayer.FromName(command[0]);
-
-            foreach (string m in UnturnedChat.wrapMessage(command[1]))
-                ChatManager.instance.channel.send("tellChat", ESteamCall.OTHERS, ESteamPacket.UPDATE_RELIABLE_BUFFER, new object[] { target.CSteamID, (byte)EChatMode.GLOBAL, target.Color, m });
+            List<string> M = UnturnedChat.wrapMessage(command[1]);
+            for (int i = 0; i < M.Count; i++)
+                ChatManager.instance.channel.send("tellChat", ESteamCall.OTHERS, ESteamPacket.UPDATE_RELIABLE_BUFFER, new object[ { target.CSteamID, (byte)EChatMode.GLOBAL, target.Color, M[i] }])
         }
     }
 }

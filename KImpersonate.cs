@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Rocket.API;
 
-namespace KImpersonate
+namespace Kr4ken.Impersonate
 {
     public class KImpersonate : RocketPlugin
     {
